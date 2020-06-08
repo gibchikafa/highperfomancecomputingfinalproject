@@ -1,5 +1,5 @@
 # Distributed Parallel Matrix-Matrix Multiply with Fox Algorithm
-This project is a parallel implementation of the Fox Algorithm using MPI in C. They are two files: fox.c and fox_optimized. The fox.c uses a serial implementation of matrix multiply. In the fox_optimized.c we optimize the matrix-matrix multiply loops to utilize temporal and spatial locality.
+This project is a parallel implementation of the Fox Algorithm using MPI in C. They are two files: fox.c and fox_optimized.c. The fox.c uses a serial implementation of matrix multiply. In the fox_optimized.c we optimize the matrix-matrix multiply loops to utilize temporal and spatial locality.
 
 # Compiling Code
 The expiriment was conducetd on KTH Beskow supercomputer. To compile the fox.c with the gcc compiler on  Beskow use command: cc fox.c -o fox.out. On Linux computer use mpicc fox.c -o fox.out. To compile the fox_optimized.c on Beskow use command: mpicc -DCLS=$(getconf LEVEL1 DCACHE LINESIZE) fox_optimized.c -o fox_optimized.out. The -DCLS=$(getconf LEVEL1_DCACHE_LINESIZE) allows us to get the L1 cache size.
